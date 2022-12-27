@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import { useRouter } from 'next/router'
-import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import getLevel from "../../../services/getLevel";
 
-export default function Level() {
+const Level = () => {
     const router = useRouter();
-    const { levelName } = router.query;
+    const levelName: string = router.query.levelName as string;
+
     const [level, setLevel] = useState(null)
     const [isLoading, setLoading] = useState(false)
 
@@ -26,7 +26,7 @@ export default function Level() {
         return <p>Loading...</p>;
     }
     if (!level) {
-        return <p>No level</p>;
+        return <p>No level found with name {levelName}</p>;
     }
 
     return (
@@ -70,3 +70,6 @@ export default function Level() {
         </div>
     )
 }
+
+
+export default Level

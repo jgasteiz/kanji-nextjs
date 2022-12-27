@@ -3,7 +3,7 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import getLevels from "../services/getLevels";
 
-export default function Home() {
+const Home = () => {
     const [levels, setLevels] = useState(null)
     const [isLoading, setLoading] = useState(false)
 
@@ -44,3 +44,5 @@ export default function Home() {
         </div>
     )
 }
+
+export default Home
