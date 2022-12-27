@@ -31,15 +31,19 @@ const Home = () => {
             </Head>
 
             <main className="pt-4 pb-4">
-                {levels.map((levelName) => {
-                    return (
-                        <div key={levelName}>
-                            <Link href={`/levels/${levelName}/`}>
-                                {levelName}
-                            </Link>
-                        </div>
-                    );
-                })}
+                <nav>
+                    <ul className="nav nav-pills">
+                        {levels.map((levelName) => {
+                            return (
+                                <li key={levelName} className="nav-item">
+                                    <Link className="nav-link" href={`/levels/${levelName}/`}>
+                                        {levelName}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </nav>
             </main>
         </div>
     )

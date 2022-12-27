@@ -2,6 +2,7 @@ import Head from 'next/head';
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 import getLevel from "../../../services/getLevel";
+import Link from "next/link";
 
 const Level = () => {
     const router = useRouter();
@@ -36,6 +37,15 @@ const Level = () => {
             </Head>
 
             <main className="pt-4 pb-4">
+                <nav aria-label="breadcrumb">
+                    <ol className="breadcrumb">
+                        <li className="breadcrumb-item">
+                            <Link href="/">Home</Link>
+                        </li>
+                        <li className="breadcrumb-item active" aria-current="page">{levelName}</li>
+                    </ol>
+                </nav>
+
                 {level.groups.map((group) => {
                     return (
                         <div key={level.name + group.index}>
