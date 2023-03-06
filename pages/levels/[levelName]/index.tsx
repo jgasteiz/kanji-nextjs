@@ -46,33 +46,21 @@ const Level = () => {
                     </ol>
                 </nav>
 
-                {level.groups.map((group) => {
+                {level.subjects.map((subject) => {
                     return (
-                        <div key={level.name + group.index}>
-                            {group.kanji_list.map((kanji, index) => {
-                                return (
-                                    <div key={level.name + group.index + index} className="card mb-2">
-                                        <div className="card-body">
-                                            <h1 className="card-title">
-                                                {kanji.kanji}
-                                            </h1>
-                                            <h2 className="card-subtitle mb-4 text-muted">
-                                                {kanji.meaning}
-                                            </h2>
-                                            <p className="card-text">
-                                                {kanji.examples}
-                                            </p>
-                                            <p className="card-text">
-                                                {kanji.kun_yomi}
-                                            </p>
-                                            <p className="card-text">
-                                                {kanji.on_yomi}
-                                            </p>
-                                        </div>
-                                    </div>
-                                );
-                            })}
-                            <hr/>
+                        <div key={subject.wanikani_id} className="card mb-2">
+                            <div className="card-body">
+                                <h1 className="card-title">
+                                    {subject.characters}
+                                </h1>
+                                <h2 className="card-subtitle mb-4 text-muted">
+                                    {subject.type}
+                                </h2>
+                                <p className="card-text" dangerouslySetInnerHTML={{__html: subject.meaning_mnemonic}}></p>
+                                <p className="card-text" dangerouslySetInnerHTML={{__html: subject.meaning_hint}}></p>
+                                <p className="card-text" dangerouslySetInnerHTML={{__html: subject.reading_mnemonic}}></p>
+                                <p className="card-text" dangerouslySetInnerHTML={{__html: subject.reading_hint}}></p>
+                            </div>
                         </div>
                     );
                 })}
